@@ -29,56 +29,18 @@
         <div class="index__main-contents">
             <div class="products-list">
                 <div class="products-list__items">
+                    @foreach ($products as $product)
                     <div class="products-list__item">
-                        <form class="products-list__form" action="/products/id">
-                            <button class="products-list__form-img"><img src="{{ asset('img/kiwi.png') }}"></button>
+                        <form class="products-list__form" action="/products/{{ $product->id }}">
+                            <button class="products-list__form-img"><img src="{{ asset( $product->image ) }}"></button>
                             <div class="products-list__form-info">
-                                <span>キウイ</span><span>¥800</span>
+                                <span>{{ $product->name }}</span><span>¥{{ $product->price }}</span>
                             </div>
                         </form>
                     </div>
-                    <div class="products-list__item">
-                        <form class="products-list__form" action="">
-                            <button class="products-list__form-img"><img src="{{ asset('img/strawberry.png') }}"></button>
-                            <div class="products-list__form-info">
-                                <span>ストロベリー</span><span>¥1200</span>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="products-list__item">
-                        <form class="products-list__form" action="">
-                            <button class="products-list__form-img"><img src="{{ asset('img/orange.png') }}"></button>
-                            <div class="products-list__form-info">
-                                <span>オレンジ</span><span>¥850</span>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="products-list__item">
-                        <form class="products-list__form" action="">
-                            <button class="products-list__form-img"><img src="{{ asset('img/watermelon.png') }}"></button>
-                            <div class="products-list__form-info">
-                                <span>スイカ</span><span>¥700</span>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="products-list__item">
-                        <form class="products-list__form" action="">
-                            <button class="products-list__form-img"><img src="{{ asset('img/peach.png') }}"></button>
-                            <div class="products-list__form-info">
-                                <span>ピーチ</span><span>¥1000</span>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="products-list__item">
-                        <form class="products-list__form" action="">
-                            <button class="products-list__form-img"><img src="{{ asset('img/muscat.png') }}"></button>
-                            <div class="products-list__form-info">
-                                <span>シャインマスカット</span><span>¥1400</span>
-                            </div>
-                        </form>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="products-list__page">ページネーション</div>
+                <div class="products-list__page">{{ $products->links() }}</div>
             </div>
         </div>
     </div>

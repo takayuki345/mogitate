@@ -151,3 +151,8 @@
 .products-list__page {
     text-align: center;
 }
+
+svg.w-5.h-5 {
+    width: 20px;
+    height: 20px;
+}
