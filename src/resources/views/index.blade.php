@@ -13,15 +13,16 @@
     <div class="index__container">
         <div class="index__side-contents">
             <div class="search-form">
-                <form class="search-form__inner" action="/products/search" method="">
+                <form class="search-form__inner" action="/products/search" method="get">
                     <input class="search-form__input-keyword" type="text" name="keyword" placeholder="商品名で検索" />
-                    <button class="search-form__button-search" type="submit">検索</button>
+                    <button class="search-form__button-search" type="submit" name="normal">検索</button>
                     <label class="search-form__label-sort" for="price_sort">価格順で表示</label>
                     <select class="search-form__select-sort" name="price_sort" id="price_sort">
-                        <option value="">高い順に表示</option>
-                        <option value="">安い順に表示</option>
+                        <option value="">価格で並べ替え</option>
+                        <option value="descend">高い順に表示</option>
+                        <option value="ascend">安い順に表示</option>
                     </select>
-                    <button class="search-form__button-sort-reset" type="submit">高い順に表示</button>
+                    <button class="search-form__button-sort-reset" type="submit" name="reset">高い順に表示</button>
                 </form>
                 <hr>
             </div>
