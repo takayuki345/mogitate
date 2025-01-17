@@ -20,3 +20,11 @@ Route::get('/', function () {
 Route::get('/products', function(){
     return view('index');
 });
+
+Route::get('/products/1', function(){
+    return view('edit');
+});
+
+Route::get('/register', function(){
+    return view('register');
+});
