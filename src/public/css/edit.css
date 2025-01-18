@@ -111,10 +111,15 @@
 .form__button-return {
     background-color: rgb(224, 223, 222);
     margin-right: 15px;
+    display: inline-block;
+    line-height: normal;
+    box-sizing: border-box;
+    text-decoration: none;
 }
 
 .form__button-save {
     background-color: rgb(245, 200, 0);
+    padding: 10px;
 }
 
 .form__error {

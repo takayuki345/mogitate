@@ -38,7 +38,14 @@
 }
 
 .form__img-opt {
+    margin-top: 15px;
     margin-bottom: 15px;
+}
+
+.form__label-image {
+    background-color: rgb(224, 223, 222);
+    border: 1px solid black;
+    padding: 5px;
 }
 
 .form__input-file {
@@ -96,10 +103,15 @@
 .form__button-return {
     background-color: rgb(224, 223, 222);
     margin-right: 15px;
+    display: inline-block;
+    line-height: normal;
+    box-sizing: border-box;
+    text-decoration: none;
 }
 
 .form__button-save {
     background-color: rgb(245, 200, 0);
+    padding: 10px;
 }
 
 
