@@ -49,7 +49,7 @@
 }
 
 .form__input-file {
-    display: none;
+    /* display: none; */
 }
 
 .multi-selectable {

@@ -36,6 +36,19 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
 
+        dd($request->all());
+        $product = [
+            'name' => $request->name,
+            'price' => $request->price,
+            'image' => 'img/' . $request->image,
+            'description' => $request->description
+        ];
+
+        $product = Product::create($product);
+
+        $product->seasons()->attach($request->season);
+
+        return redirect('/products');
     }
 
     public function edit($productId)
@@ -48,8 +61,20 @@ class ProductController extends Controller
 
     public function update(ProductRequest $request, $productId)
     {
-        $product = product::find($productId);
-        // 途中・・・Productおよび中間テーブルへの登録？
+        
+        $product = Product::find($productId)->update(
+            [
+                'name' => $request->name,
+                'price' => $request->price,
+                'image' => 'img/' . $request->image,
+                'description' => $request->description
+            ]
+        );
+
+        $product = Product::find($productId);
+        $product->seasons()->sync($request->season);
+
+        return redirect('/products');
     }
 
     private function keywordSearch($query, $keyword)

@@ -10,14 +10,14 @@
         <a href="/products">商品一覧</a> ＞ {{ $product->name }}
     </div>
     <div class="edit__form">
-        <form class="edit__form-inner" action="/products/{{ $product->id }}/update" method="post">
+        <form class="edit__form-inner" action="/products/{{ $product->id }}/update" method="post"  enctype="multipart/form-data">
             @csrf
             <div class="form__main">
                 <div class="form__main-left">
                     <img src="{{ asset( $product->image ) }}" alt="">
                     <label class="form__label-image" for="image">ファイルを選択</label>
                     <span class="form__image-name">{{ str_replace('img/', '', $product->image) }}</span>
-                    <input class="form__input-file" type="file" name="image" id="image">
+                    <input class="form__input-file" type="file" name="image" id="image" accept=".png, .jpeg">
                     <div class="form__error">
                         <ul>
                             <!-- <li>商品画像を登録してください</li>
@@ -61,7 +61,7 @@
                     @endphp
                     <div class="form__input-checkboxes">
                         @foreach ($seasons as $season)
-                        <input type="checkbox" id="{{ $season->id }}" name="season" value="{{ $season->id }}" @if(in_array($season->id,array_column($assoc,'id'))) checked @endif>
+                        <input type="checkbox" id="{{ $season->id }}" name="season[]" value="{{ $season->id }}" @if(in_array($season->id,array_column($assoc,'id'))) checked @endif>
                         <label for="{{ $season->id }}">{{ $season->name }}</label>
                         @endforeach
                     </div>

@@ -8,11 +8,11 @@
 <div class="register__wrapper">
     <div class="register__heading">商品登録</div>
     <div class="register__form">
-        <form class="register__form-inner" action="/products/register" method="post">
+        <form class="register__form-inner" action="/products/register" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form__group">
                 <label class="form__label" for="name">商品名<span class="required--red">必須</span></label>
-                <input class="form__input-text" type="text" id="name" name="name" placeholder="商品名を入力">
+                <input class="form__input-text" type="text" id="name" name="name" placeholder="商品名を入力" value="{{ old('name') }}">
                 <div class="form__error">
                     <ul>
                         <li>
@@ -26,7 +26,7 @@
             </div>
             <div class="form__group">
                 <label  class="form__label"for="price">値段<span class="required--red">必須</span></label>
-                <input class="form__input-text" type="text" id="price" name="price" placeholder="値段を入力">
+                <input class="form__input-text" type="text" id="price" name="price" placeholder="値段を入力" value="{{ old('price') }}">
                 <div class="form__error">
                     <ul>
                         <!-- <li>値段を入力してください</li>
@@ -47,7 +47,7 @@
                     <label class="form__label-image" for="image">ファイルを選択</label>
                     <span class="form__image-name">image01.jpeg</span>
                 </div>
-                <input class="form__input-file" type="file" name="image" id="image">
+                <input class="form__input-file" type="file" name="image" id="image" value="{{ old('image') }}" accept=".png, .jpeg">
                 <div class="form__error">
                     <ul>
                         <!-- <li>商品画像を登録してください</li>
@@ -63,13 +63,13 @@
             <div class="form__group">
                 <label class="form__label" for="name">季節<span class="required--red">必須</span><span class="multi-selectable">複数選択可</span></label>
                 <div class="form__input-checkboxes">
-                    <input type="checkbox" id="spring" name="season" value="spring">
+                    <input type="checkbox" id="spring" name="season[]" value="1">
                     <label for="spring">春</label>
-                    <input type="checkbox" id="summer" name="season" value="summer">
+                    <input type="checkbox" id="summer" name="season[]" value="2">
                     <label for="summer">夏</label>
-                    <input type="checkbox" id="autumn" name="season" value="autumn">
+                    <input type="checkbox" id="autumn" name="season[]" value="3">
                     <label for="autumn">秋</label>
-                    <input type="checkbox" id="winter" name="season" value="winter">
+                    <input type="checkbox" id="winter" name="season[]" value="4">
                     <label for="winter">冬</label>
                 </div>
                 <div class="form__error">
@@ -85,7 +85,7 @@
             </div>
             <div class="form__group">
                 <label class="form__label" for="description">商品説明<span class="required--red">必須</span></label>
-                <textarea class="form__textarea" name="description" id="description" placeholder="商品の説明を入力"></textarea>
+                <textarea class="form__textarea" name="description" id="description" placeholder="商品の説明を入力">{{ old('description') }}</textarea>
                 <div class="form__error">
                     <ul>
                         <!-- <li>商品説明を入力してください</li>
