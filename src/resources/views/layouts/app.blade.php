@@ -12,7 +12,7 @@
     <header class="header">
         <div class="header__inner">
             <h1 class="header__logo">
-                mogitate
+                <a href="/products">mogitate</a>
             </h1>
         </div>
     </header>
