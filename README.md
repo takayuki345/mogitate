@@ -41,7 +41,8 @@ php artisan db:seed
 ![ER図](ER_Diagram.jpg)
 
 ## URL
-- 開発環境：http://localhost/
+- 開発環境：http://localhost/  
+***（アクセス権の問題で`sudo chmod 777 -R src`が必要となる場合があります）***
 - pypMyAdmin：http://localhost:8080/
 
 ## 備考
